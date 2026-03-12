@@ -1,2 +1,3 @@
 # javascriptl-learning
-learning javascript and doing practice
+learning javascript  from chai and code and doing practice  
+
