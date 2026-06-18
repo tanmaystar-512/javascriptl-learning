@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        color: white;
+    }
+    </style>
+<body>
+    <ul id="tech-stack"></ul>
+
+    <ul class="frameworks">
+  <li>React</li>
+  <li>Node.js</li>
+  <li>MongoDB</li>
+</ul>
+    
+</body>
+<script>
+    // 🟢 Level 1: Beginner (Warm-up)
+// Task: Given an empty HTML unordered list with the ID #tech-stack, write JavaScript to add three list items: "HTML", "CSS", and "JavaScript" using the optimized Method B (createTextNode).
+    const techStack = document.getElementById('tech-stack');
+    const technologies1=document.createElement('li');
+    const textNode1=document.createTextNode("HTML");
+    technologies1.appendChild(textNode1);
+    techStack.appendChild(technologies1);
+    const technologies2=document.createElement('li');
+    const textNode2=document.createTextNode("css");
+    technologies2.appendChild(textNode2);
+    techStack.appendChild(technologies2);
+    const technologies3=document.createElement('li');
+    const textNode3=document.createTextNode("javascript");  
+    technologies3.appendChild(textNode3);
+    techStack.appendChild(technologies3);
+
+    //🟡 Level 2: Intermediate (Surgical Edits)
+// Task: Imagine a list containing ["React", "Angular", "Vue"].
+
+// Use JavaScript to find the item containing "Angular".
+
+// Replace it completely with "Node.js" using the replaceWith method.
+
+// Update the item containing "Vue" to "MongoDB" using the outerHTML property.
+
+//answer 2 
+const secondItem = document.querySelector(".frameworks li:nth-child(2)");
+const newItem = document.createElement("li");
+newItem.textContent = "Node.js";
+secondItem.replaceWith(newItem);
+
+// const thirdItem = document.querySelector(".frameworks li:nth-child(3 )");
+// thirdItem.outerHTML = "<li>MongoDB</li>";
+
+//question 3 
+// Level 3: Advanced/Pro (Dynamic Dashboard Logic)
+// Task: Create a dynamic notification list handler function called manageNotifications(action, text).
+
+// If action is "ADD", append a new list item containing the text string dynamically to a ul.notifications container using optimized methods.
+
+// If action is "CLEAR_LAST", remove the absolute last notification currently in that list.
+
+// If action is "UPGRADE", find the very first notification element and change its inner content text to "⚠️ CRITICAL UPDATE: " + text.
+
+
+
+</script>
+
+</html>

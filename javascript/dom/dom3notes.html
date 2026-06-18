@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM lecture 3 notes </title>
+</head>
+<style>
+    body{
+        background-color: black;
+        color: white;
+    }
+    </style>
+<body>
+    <div class="parent">
+        <div class="class">Monday</div>
+        <div class="class">Tuesday</div>
+        <div class="class">Wednesday</div>
+        <div class="class">Thursday</div>
+    </div>
+</body>
+<script>
+    //parent to child traversal
+    const parent=document.querySelector('.parent');
+    // 1. Get the HTMLCollection of children
+    console.log(parent.children);
+    //// 2. Access a specific child using an index
+    console.log(parent.children[1]);
+    console.log(parent.children[3].innerHTML)
+// 3. Loop through an HTMLCollection using a classic for loop
+    for (let i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML);
+    }
+    //child to parent traversal
+    const child=document.querySelector('.class');
+console.log(child.parentElement);
+console.log(child.parentNode);
+console.log(child.parentElement === parent); // true
+const allChildren=document.querySelectorAll('.class');
+allChildren.forEach((child)=>{
+    console.log(child.parentElement.innerHTML);
+})
+//sibling element
+console.log(child.nextElementSibling);
+console.log(child.nextElementSibling);
+console.log(child.nextElementSibling.nextElementSibling);
+console.log(child.nextElementSibling.nextElementSibling.nextElementSibling);
+
+console.log(parent.children[3]==child.nextElementSibling.nextElementSibling.nextElementSibling); // true
+
+
+console.log(child.previousElementSibling); // null, because it's the first child
+console.log(child.nextElementSibling.previousElementSibling); //     Monday, because it's the sibling of Tuesday
+
+
+//first and last elemeent 
+
+console.log(parent.firstElementChild); //    Monday
+console.log(parent.lastElementChild); // Thursday
+
+
+//children vs childNodes
+console.log(parent.children);// HTMLCollection of element children (ignores text nodes)
+console.log(parent.childNodes);// NodeList of all child nodes (includes text nodes, comments, etc.)
+
+//Creating Elements Programmatically and injecting dom 
+4//Element Create karne ka FLOW ⭐⭐
+// STEP 1 → createElement()     Memory mein element banao
+// STEP 2 → setAttribute()      Attributes do (class, id)
+// STEP 3 → style.property      Style do (camelCase!)
+// STEP 4 → createTextNode()    Text banao
+//          appendChild(text)   Element mein daalo
+// STEP 5 → body.appendChild()  Page par lagao — DONE ✅
+// Code:
+const newDiv=document.createElement('div');
+newDiv.className="main";
+newDiv.id=Math.round(Math.random()*10+1);
+newDiv.setAttribute("title","generated title");
+newDiv.style.backgroundColor="green";
+newDiv.style.color="white"
+
+//injecting to dom 
+const text=document.createTextNode("HEllo Tanmay");
+
+newDiv.appendChild(text);// div ke andar text daal diya
+document.body.appendChild(newDiv);// div ko page par daal diya)
+</script>
+</html>

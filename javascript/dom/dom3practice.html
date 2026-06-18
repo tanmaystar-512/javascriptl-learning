@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        color: white;
+    }
+</style>
+<body>
+
+</body>
+<script>
+//     Challenge 1 — Basic 🟢
+
+// Ek <h2> element banao jisme text ho "DOM Practice!", color ho red, aur page par show ho.
+//method 1
+//     const h2=document.createElement('h2');
+// h2.style.color="red";
+// h2.textContent="DOM Practical";
+// document.body.appendChild(h2);
+
+//method 2
+// const h2=document.createElement('h2');
+// h2.style.color="red";
+// const textNode=document.createTextNode("DOM practical");
+// h2.appendChild(textNode);
+// document.body.appendChild(h2);
+
+//Ek <ul> banao jisme 3 <li> ho — "HTML", "CSS", "JavaScript". Sab ko page par lagao.
+
+//<details><summary>✅ Answer</summary>
+
+//     const ul = document.createElement('ul');
+// const topics = ['HTML', 'CSS', 'JavaScript'];
+
+// for (let i = 0; i < topics.length; i++) {
+//   const li = document.createElement('li');
+//   const text = document.createTextNode(topics[i]);
+//   li.appendChild(text);
+//   ul.appendChild(li);
+// }
+
+// document.body.appendChild(ul);
+
+//Ek <div> banao class "profile" ke saath. Usme ek <h3> (tera naam) aur ek <p> ("Web Developer") daalo. Background lightgray karo. Page par lagao.
+//     const div =document.createElement('div');
+//     div.className="profile";
+//     div.style.backgroundColor="lightgray";
+//     div.style.color="red";
+//     div.style.padding="10px";
+//     const h3=document.createElement('h3');
+// const textNode=document.createTextNode("Tanmay");
+// h3.appendChild(textNode);
+// const p=document.createElement('p');
+// const textNode2=document.createTextNode("web developer");
+// p.appendChild(textNode2);
+// div.appendChild(h3);
+// div.appendChild(p);
+// document.body.appendChild(div);
+</script>
+</html>

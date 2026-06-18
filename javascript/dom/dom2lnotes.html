@@ -1,0 +1,123 @@
+<!-- dom 2 lecture  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM LEARNING </title>
+    <style>
+        .bg-black{
+            background-color: black;
+            color: white;
+        }
+
+    </style>
+</head>
+<body class="bg-black">
+    <div class="headear">
+        <h1 id="tittle" class="heading">DOM learning <span style="display:none;"> from the best youtube</span> chai aur code</h1>
+    <p>Lorem hello from y side how werw you.</p>
+    </div>
+    // ==============================================
+// DOM MANIPULATION — Revision Notes
+// Topic: Selectors | Content | Style | Attrs
+// Use this file to revise anytime in VS Code
+// ==============================================
+
+
+// ─────────────────────────────────────────────
+// LEVEL 1 — SELECTORS
+// Concept: DOM mein element pakadne ke 4 tarike
+// ─────────────────────────────────────────────
+
+// 1. getElementById — sabse fast, 1 element, unique id se
+const el1 = document.getElementById('myId');
+
+// 2. querySelector — CSS syntax, sirf PEHLA match
+const el2 = document.querySelector('.myClass');   // class
+const el3 = document.querySelector('#myId');      // id (# lagao)
+const el4 = document.querySelector('div p');     // nested
+
+// 3. querySelectorAll — CSS syntax, SAARE matches → NodeList
+const list = document.querySelectorAll('.myClass');
+
+// 4. getElementsByClassName → HTMLCollection (not array!)
+const coll = document.getElementsByClassName('myClass');
+
+
+// ─────────────────────────────────────────────
+// LEVEL 2 — CONTENT
+// innerText vs textContent vs innerHTML
+// ─────────────────────────────────────────────
+
+// innerText   → sirf visible text (hidden elements ignore)
+el1.innerText = 'Hello';
+
+// textContent → sab text (hidden bhi dikhta hai)
+el1.textContent = 'Hello';
+
+// innerHTML   → HTML tags ke saath read/write
+el1.innerHTML = '<b>Hello</b>';
+
+// ⚠ DANGER — User input ke liye innerHTML KABHI mat use karo
+// → XSS attack ho sakti hai (script inject ho sakti hai)
+// ✓ SAFE alternative:
+el1.textContent = userInput;
+
+
+// ─────────────────────────────────────────────
+// LEVEL 3 — STYLES aur ATTRIBUTES
+// ─────────────────────────────────────────────
+
+// Styles — camelCase mein (hyphen hata ke agla letter capital)
+// background-color → backgroundColor
+// font-size        → fontSize
+// border-radius    → borderRadius
+el1.style.backgroundColor = 'green';
+el1.style.fontSize        = '18px';
+el1.style.borderRadius    = '8px';
+
+// Attributes — getAttribute / setAttribute
+el1.getAttribute('href');                   // value padhna
+el1.setAttribute('href', 'https://new.com'); // value set karna
+
+// ⚠ TRAP — setAttribute se class REPLACE ho jaati hai
+// el1.setAttribute('class', 'new') → purani classes gone!
+// ✓ SAFE — classList use karo:
+el1.classList.add('active');       // add karo
+el1.classList.remove('active');    // remove karo
+el1.classList.toggle('active');    // toggle karo
+el1.classList.contains('active'); // check karo → true/false
+
+
+// ─────────────────────────────────────────────
+// LEVEL 4 — NODELIST vs HTMLCOLLECTION
+// Sabse bada confusion — clear karo
+// ─────────────────────────────────────────────
+
+// NodeList (querySelectorAll se):
+//   ✓ forEach seedha kaam karta hai
+//   ✗ map / filter nahi kaam karta
+//   ✗ Real array nahi — Array.isArray(list) → false
+
+list.forEach(item => console.log(item));         // ✓
+Array.from(list).map(item => item.innerText);   // ✓ convert first
+
+// HTMLCollection (getElementsByClassName se):
+//   ✗ forEach bhi nahi kaam karta
+//   ✗ map / filter nahi
+//   → Array.from() karna hi padega
+
+Array.from(coll).forEach(item => {
+  console.log(item.innerText);
+});
+
+// SAFE RULE — koi bhi collection ho:
+// → Array.from() karo → phir kuch bhi karo, sab kaam karega
+const arr = Array.from(list /* ya coll */);
+arr.forEach(...);
+arr.map(...);
+arr.filter(...);
+    
+</body>
+</html>on

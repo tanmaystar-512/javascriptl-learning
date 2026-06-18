@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        </style>
+</head>
+ <body>
+    <div class="level1">
+<!--  question 1 Ek page pe <h1 id="heading">Hello</h1> hai. Isko JS se select karo aur console mein print karo.
+ -->
+<h1 id="heading">Hello</h1>
+<!-- answer 1 const h = document.getElementById('heading'); console.log(h);  -->
+ <!-- ques 2 Page pe 5 paragraphs hain — <p class="desc">. Sirf pehla paragraph select karo. -->
+<p class="desc">hello</p>
+<p class="desc">my</p>
+<p class="desc">name</p>
+<p class="desc">is </p>
+<p class="desc">Tanmay Baheti</p>
+<!-- answer 2 const p = document.querySelector('.desc'); console.log(p);  -->
+ <!-- ques 3 Same 5 paragraphs hain. Ab saare select karo aur unki sankhya (count) console mein print karo.
+ -->
+<!-- answer 3 const ps = document.querySelectorAll('.desc'); console.log(ps.length);  -->
+ <!-- question 4 querySelector se id #logo select karo. getElementById se bhi karo. Dono same element return karenge? -->
+<h2 id="logo">Logo</h2>
+<!-- const a = document.querySelector('#logo'); // # zaruri hai const b = document.getElementById('logo'); // # nahi chahiye console.log(a === b); // → true, same element -->
+
+</div>
+
+<div class="level2">
+<!-- ques 5 Ek div hai jisme likha hai Hello <span style="display:none">Secret</span>. innerText aur textContent kya return karenge?-->
+<div class="ques5">
+Hello <span style="display:none">Secret</span>
+</div>
+<!-- abnsw 5 const d = document.querySelector('div'); d.innerText // → "Hello" (hidden ignore) d.textContent // → "Hello Secret" (hidden bhi dikhta)
+Simple rule: Jo user screen pe dekh sakta hai → innerText. Jo DOM mein hai (hidden bhi) → textContent. -->
+
+<!-- ques6  Ek div ka text "Old Price" se "New Price: ₹999" karo — bold ke saath.-->
+ <div class="price">OLd price </div>
+<!-- ANS 6 const d = document.getElementById('price'); d.innerHTML = 'New Price: <b>₹999</b>'; // innerText se likhte toh <b> tag as text dikhta, render nahi hota -->
+
+</div>
+
+<div class="LEVEL3">
+    <!-- QUES 8 JS se ek button ka background green, text white, aur font size 18px karo. -->
+     <button id="mybutton">Click me</button>
+<!-- ANS 8 const btn = document.getElementById('mybutton'); btn.style.backgroundColor = 'green'; btn.style.color = 'white'; btn.style.fontSize = '18px'; -->
+
+<!-- ques 9 <a id="link" href="old.com"> ka href "new.com" karo aur current value pehle console mein print karo. -->
+<a id="link" href="google.com">Google</a>
+<!-- answer 9 const a = document.getElementById('link'); console.log(a.getAttribute('href')); // → "old.com" a.setAttribute('href', 'new.com'); // update karo console.log(a.getAttribute('href')); // → "new.com" -->
+<!-- link.setAttribute('href', 'microsoft.com')  // destination badla
+link.innerText = 'Microsoft'                 // text bhi badlo
+
+Simple rule yaad rakho:
+Kya badalna haiKya use kareinLink kahan jaayesetAttribute('href', ...)Link ka dikhne wala textinnerText = ... -->
+
+<!-- ques 10 
+Ek image pe already class="product" hai. "featured" add karo bina "product" hataye. 2 tarike dikhao — galat aur sahi. -->
+<div><img src="https://tse2.mm.bing.net/th/id/OIP.RaoNOjhR-10yEYwpD-VlMAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" class="product" alt="Product Image" display="block" width="200"   height="200"></div>
+<!--  ans 10 // ✗ GALAT — "product" class ud jaayegi img.setAttribute('class', 'featured'); // Ab class = "featured" only. "product" gone.
+// ✓ SAHI — sirf "featured" add hogi img.classList.add('featured'); // Ab class = "product featured". Dono safe hain. -->
+
+</div>
+<div class="level4">
+<!-- ques 11 getElementsByClassName se saare .item elements lo. forEach laga ke unka text print karo. Seedha kaam karega ya nahi? -->
+<p class="item">t</p>
+<p class="item">a</p>
+<p class="item">v</p>
+<p class="item">i</p>
+<p class="item">pagal or budbak  hai </p>
+
+
+</div>
+    
+</body>
+</html>
